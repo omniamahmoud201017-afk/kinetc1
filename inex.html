@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>نشاط الطالب الحركي: المستوى المتوسط</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f5f7fb;--card:#fff;--ink:#1c2740;--mute:#5b6580;--line:#d9deea;--acc:#0e7c7b;--accbg:#dff3f2;--ok:#1b7a3d;--okbg:#e3f5e8;--bad:#b3261e;--badbg:#fdebea;--warm:#b7791f;--warmbg:#fbf0d9;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121826;--card:#1b2438;--ink:#e8ecf6;--mute:#a3adc6;--line:#2f3b57;--acc:#4fd1c5;--accbg:#173b3d;--ok:#6ee7a0;--okbg:#17352a;--bad:#ff8a80;--badbg:#3d1f21;--warm:#f6c453;--warmbg:#3b3018}}
+:root[data-theme="dark"]{--bg:#121826;--card:#1b2438;--ink:#e8ecf6;--mute:#a3adc6;--line:#2f3b57;--acc:#4fd1c5;--accbg:#173b3d;--ok:#6ee7a0;--okbg:#17352a;--bad:#ff8a80;--badbg:#3d1f21;--warm:#f6c453;--warmbg:#3b3018}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Tajawal",system-ui,sans-serif;line-height:1.7;font-size:16px}
+main{max-width:760px;margin:0 auto;padding:20px 16px 48px}
+h1{font-size:1.45rem;margin:0 0 4px}
+h2{font-size:1.15rem;margin:0 0 8px}
+p{margin:0 0 10px}
+.sub{color:var(--mute);margin-bottom:16px}
+.tabs{display:flex;gap:8px;margin-bottom:16px}
+.tab{flex:1;padding:12px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);border-radius:10px;font:inherit;font-weight:700;cursor:pointer}
+.tab[aria-selected="true"]{background:var(--acc);border-color:var(--acc);color:#fff}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .tab[aria-selected="true"]{color:#0b1f20}}
+section.panel{display:none}
+section.panel.on{display:block}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:14px}
+.bar{height:8px;background:var(--line);border-radius:4px;overflow:hidden;margin:6px 0 14px}
+.bar i{display:block;height:100%;background:var(--acc);width:0;transition:width .3s}
+.prompt{background:var(--warmbg);color:var(--ink);border:1.5px dashed var(--warm);border-radius:10px;padding:18px 14px;font-size:1.1rem;font-weight:500;min-height:84px;display:flex;align-items:center}
+.opts{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:8px;margin-top:12px}
+.opt{padding:12px 10px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);border-radius:10px;font:inherit;cursor:pointer;text-align:right}
+.opt:hover{border-color:var(--acc)}
+.opt.bad{border-color:var(--bad);background:var(--badbg)}
+.opt.ok{border-color:var(--ok);background:var(--okbg)}
+.fb{min-height:28px;margin-top:10px;font-weight:500}
+.fb.ok{color:var(--ok)}.fb.bad{color:var(--bad)}
+.btn{padding:10px 18px;border:0;border-radius:10px;background:var(--acc);color:#fff;font:inherit;font-weight:700;cursor:pointer}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .btn{color:#0b1f20}}
+.btn.ghost{background:transparent;color:var(--acc);border:1.5px solid var(--acc)}
+.row{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
+.row:last-child{border-bottom:0}
+.row small{display:block;color:var(--mute)}
+.row2{display:grid;grid-template-columns:1fr auto auto;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
+.seg{display:inline-flex;border:1.5px solid var(--line);border-radius:10px;overflow:hidden}
+.seg button{width:40px;height:38px;border:0;background:var(--card);color:var(--ink);font:inherit;font-weight:700;cursor:pointer}
+.seg button+button{border-inline-start:1px solid var(--line)}
+.seg button[aria-pressed="true"]{background:var(--acc);color:#fff}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .seg button[aria-pressed="true"]{color:#0b1f20}}
+.track{display:flex;align-items:center;gap:0;margin:10px 0 4px}
+.track span{flex:1;text-align:center;padding:8px 0;font-weight:700;border:1.5px solid var(--line)}
+.track span:nth-child(1){background:var(--badbg);border-radius:0 10px 10px 0}
+.track span:nth-child(2){background:var(--warmbg)}
+.track span:nth-child(3){background:var(--okbg);border-radius:10px 0 0 10px}
+.total{font-weight:700;font-size:1.1rem;margin-top:12px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.chip{background:var(--accbg);color:var(--ink);border-radius:20px;padding:6px 14px;font-weight:500}
+label.ck{display:flex;gap:10px;align-items:flex-start;padding:8px 0;cursor:pointer}
+label.ck input{margin-top:6px;width:18px;height:18px;accent-color:var(--acc)}
+.cols{display:grid;grid-template-columns:1fr auto auto;gap:10px;color:var(--mute);font-size:.9rem;padding-bottom:4px}
+textarea{width:100%;min-height:90px;border:1.5px solid var(--line);border-radius:10px;padding:10px;font:inherit;background:var(--card);color:var(--ink)}
+.weak{background:var(--warmbg);border-radius:10px;padding:10px 12px;margin-top:10px}
+:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+@media (max-width:520px){.row2{grid-template-columns:1fr;}.cols{display:none}}
+</style>
+</head>
+<body>
+<main>
+<h1>نشاط الطالب الحركي (المستوى المتوسط)</h1>
+<p class="sub">معايير تقييم كائنات التعلم التفاعلية، مبني على بطاقة التقييم ذات المعايير التسعة</p>
+<section class="panel on" id="p1" role="tabpanel" aria-labelledby="t1">
+<div class="card">
+<h2>المرحلة الأولى: فرز المؤشرات</h2>
+<p>اقرأ المؤشر، ثم اختر المعيار الذي ينتمي إليه.</p>
+<div class="bar"><i id="pb"></i></div>
+<div class="prompt" id="prompt"></div>
+<div class="opts" id="opts"></div>
+<div class="fb" id="fb" aria-live="polite"></div>
+<button class="btn" id="next" hidden>المؤشر التالي</button>
+<div id="done" hidden>
+<p class="total" id="doneTxt"></p>
+<button class="btn ghost" id="again">أعد الفرز</button>
+</div>
+</div>
+<div class="card">
+<h2>المرحلة الثانية: خط الدرجات</h2>
+<p>قيّم كائنًا جاهزًا في كل معيار. بعض مؤشرات البطاقة لها درجتان فقط (0 و1)، فاختر الأقرب.</p>
+<div class="track" aria-hidden="true"><span>0 غير متحقق</span><span>1 جزئي أو متحقق</span><span>2 متحقق بالكامل</span></div>
+<div id="sc1"></div>
+<div class="total" id="tot1"></div>
+</div>
+</section>
+
+</main>
+<script>
+var S=["جودة المحتوى","أهداف التعلم","التغذية الراجعة والتفاعل","التحفيز والدافعية","تصميم العرض البصري","سهولة التفاعل","إمكانية الوصول","قابلية إعادة الاستخدام","التوافق التقني"];
+var $=function(i){return document.getElementById(i)};
+var C=[["توجد أخطاء علمية في بعض أجزاء المحتوى",0],["لا تتوافق معظم الأنشطة مع الأهداف التعليمية",1],["لا يقدم الكائن تغذية راجعة توضح سبب الخطأ",2],["لم تُستخدم عناصر التحفيز اللحظي مثل النقاط والشارات",3],["لا يوجد تباين بين لون النص والخلفية",4],["أيقونات التحكم (التشغيل، الإيقاف، الانتقال، إعادة المحاولة) غير واضحة",5],["لا يعمل الكائن بكفاءة على مختلف الأجهزة",6],["لا تتوفر تراخيص الاستخدام (حقوق النشر) بوضوح",7],["لا تتوفر البيانات الوصفية الأساسية: العنوان والمؤلف واللغة والكلمات المفتاحية",8],["يتيح الكائن خيار التقدم للأمام والرجوع للخلف",2],["كل الصور المستخدمة بسيطة وتقتصر على الموضوع الرئيس",4],["يمكن تعديل الكائن التعليمي أو مصدره",7]];
+var i=0,score=0,tries=0,locked=false;
+function show(){
+ if(i>=C.length){$("prompt").parentNode.querySelectorAll(".prompt,.opts,.fb").forEach(function(e){e.hidden=true});$("next").hidden=true;$("done").hidden=false;$("doneTxt").textContent="أنهيت الفرز: "+score+" من "+C.length+" من أول محاولة.";$("pb").style.width="100%";return}
+ locked=false;tries=0;$("pb").style.width=(i/C.length*100)+"%";$("prompt").textContent=C[i][0];$("fb").textContent="";$("fb").className="fb";$("next").hidden=true;
+ $("opts").innerHTML="";
+ S.forEach(function(n,k){var b=document.createElement("button");b.className="opt";b.textContent=n;b.onclick=function(){pick(k,b)};$("opts").appendChild(b)});
+}
+function pick(k,b){
+ if(locked)return;
+ if(k==C[i][1]){locked=true;if(tries==0)score++;b.classList.add("ok");$("fb").className="fb ok";$("fb").textContent="إجابة صحيحة. المؤشر ينتمي إلى معيار «"+S[k]+"».";$("next").hidden=false;$("next").focus()}
+ else{tries++;b.classList.add("bad");b.disabled=true;$("fb").className="fb bad";$("fb").textContent="ليس هذا المعيار. فكّر في ما يقيسه المؤشر وحاول مرة أخرى."}
+}
+$("next").onclick=function(){i++;show()};
+$("again").onclick=function(){i=0;score=0;$("done").hidden=true;$("prompt").hidden=false;$("opts").hidden=false;$("fb").hidden=false;show()};
+function seg(val,cb){var d=document.createElement("div");d.className="seg";d.setAttribute("role","group");[0,1,2].forEach(function(v){var b=document.createElement("button");b.textContent=v;b.setAttribute("aria-pressed",val===v);b.onclick=function(){cb(v)};d.appendChild(b)});return d}
+var a1=S.map(function(){return null});
+function draw1(){var h=$("sc1");h.innerHTML="";S.forEach(function(n,k){var r=document.createElement("div");r.className="row";var t=document.createElement("div");t.textContent=n;r.appendChild(t);r.appendChild(seg(a1[k],function(v){a1[k]=v;draw1()}));h.appendChild(r)});
+ var s=0,c=0;a1.forEach(function(v){if(v!==null){s+=v;c++}});$("tot1").textContent=c?"المجموع: "+s+" من "+(S.length*2)+" ("+c+" من "+S.length+" معايير مقيَّمة)":"اختر درجة لكل معيار."}
+draw1();
+show();
+</script>
+</body>
+</html>
